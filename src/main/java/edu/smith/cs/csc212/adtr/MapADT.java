@@ -32,7 +32,7 @@ public interface MapADT<KeyType, ValueType> {
 	 */
 	@Nullable
 	public ValueType get(KeyType k);
-
+	
 	/**
 	 * How many key-value mappings are in this data structure?
 	 * 
@@ -56,12 +56,14 @@ public interface MapADT<KeyType, ValueType> {
 	 */
 	public ListADT<KeyType> getKeys();
 
+	
 	/**
 	 * Get the entries from this mapping table as a {@linkplain ListADT} of
 	 * {@linkplain Pair} objects.
 	 * 
 	 * @return the entries of this table.
 	 */
+
 	public ListADT<Pair<KeyType, ValueType>> getEntries();
 
 	/**

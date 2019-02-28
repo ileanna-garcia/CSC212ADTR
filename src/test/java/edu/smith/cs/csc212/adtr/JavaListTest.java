@@ -108,9 +108,7 @@ public class JavaListTest {
 		Assert.assertEquals("0", data.getIndex(1));
 		Assert.assertEquals("1", data.getIndex(0));
 	}
-	
-	// TODO: test list remove
-	// TODO test addIndex methods.
+
 	
 	@Test
 	public void testGetFront() {
@@ -172,10 +170,44 @@ public class JavaListTest {
 		data.addIndex(-1, "the");
 	}
 	
-	// TODO write some tests for setIndex.
-	
+	//Tests if the list could be turned into a java data structure
 	@Test
 	public void testToJava() {
-		assertEquals(makeFullList().toJava(), Arrays.asList("a", "b", "d", "d"));
+		assertEquals(makeFullList().toJava(),Arrays.asList("a", "b", "c", "d"));
+	}
+	//Tests if the index is appropriately set
+	@Test
+	public void testsetIndex() {
+		ListADT<String> data = makeFullList();
+		data.setIndex(1, "r");
+		assertEquals(data.getIndex(1),"r");
+	}
+	//Tests if the index is properly added
+	@Test
+	public void testaddIndex() {
+		ListADT<String> data = makeFullList();
+		data.addIndex(3,"e");
+		assertEquals(data.getIndex(3),"e");
+	}
+	//Tests if the back index is removed
+	@Test
+	public void testremoveBack() {
+		ListADT<String> data = makeFullList();
+		data.removeBack();
+		assertEquals(data.getBack(),"c");
+	}
+	//Tests if a specific index is removed	
+	@Test
+	public void testremoveIndex() {
+		ListADT<String> data = makeFullList();
+		data.removeIndex(1);
+		assertEquals(data.getIndex(2),"d");
+	}
+	//Tests if the front index is removed
+	@Test
+	public void testremoveFront() {
+		ListADT<String> data = makeFullList();
+		data.removeFront();
+		assertEquals(data.getFront(),"b");
 	}
 }
